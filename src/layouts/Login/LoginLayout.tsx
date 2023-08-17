@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router'
-import Button from '~/components/Button'
 
 import imageBanner from '~/assets/images/banner-login-todo.jpg'
 
 import ROUTER from '~/configs/router'
 import { OuthLogin } from '~/modules/Login'
+import { Link } from 'react-router-dom'
 
 const LoginLayout = () => {
   return (
@@ -22,9 +22,9 @@ const LoginLayout = () => {
           <div className=' max-w-[350px] mt-7'>
             <OuthLogin></OuthLogin>
 
-            <Button href={ROUTER.LOGIN.SIGN_UP} className='w-full mt-4 text-white font-medium' type='primary'>
+            <Link to={ROUTER.LOGIN.SIGN_UP} className='btn w-full mt-4 text-white font-medium' type='primary'>
               Create account
-            </Button>
+            </Link>
 
             <p className='text-xs mt-2'>
               By registering, you agree to the <span className='text-primary cursor-pointer'>Terms of Service</span> and{' '}
@@ -35,12 +35,12 @@ const LoginLayout = () => {
             <div className='mt-16'>
               <h3 className='font-bold text-lg'>Already have an account?</h3>
 
-              <Button
-                href={ROUTER.LOGIN.SIGN_IN}
-                className='w-full mt-4 text-primary bg-white border-primary font-bold'
+              <Link
+                to={ROUTER.LOGIN.SIGN_IN}
+                className='btn w-full mt-4 text-primary bg-white border-primary font-bold'
               >
                 SignIn
-              </Button>
+              </Link>
             </div>
           </div>
         </div>
