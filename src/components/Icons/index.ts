@@ -1,5 +1,5 @@
 export { default as ArrowUp } from './ArrowUp'
-export { default as GoogleIcon } from './GoogleIcon'
+export { default as GoogleIcon } from './Google'
 export { default as ArrowLeftIcon } from './ArrowLeft'
 export { default as ArrowLongLeftIcon } from './ArrowLongLeft'
 export { default as ArrowTrendingUpIcon } from './ArrowTrendingUp'
