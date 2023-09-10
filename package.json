@@ -22,6 +22,7 @@
     "@tanstack/react-query": "^4.33.0",
     "@vidstack/react": "^0.6.13",
     "axios": "^1.4.0",
+    "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-datepicker": "^4.16.0",
@@ -34,8 +35,6 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@tanstack/react-query-devtools": "^4.33.0",
-    "@types/lodash": "^4.14.197",
     "@storybook/addon-essentials": "7.2.3",
     "@storybook/addon-interactions": "7.2.3",
     "@storybook/addon-links": "^7.2.3",
@@ -45,13 +44,16 @@
     "@storybook/react": "7.2.3",
     "@storybook/react-vite": "7.2.3",
     "@storybook/testing-library": "0.2.0",
+    "@tanstack/react-query-devtools": "^4.33.0",
+    "@types/js-cookie": "^3.0.3",
+    "@types/lodash": "^4.14.197",
     "@types/node": "^20.4.10",
     "@types/react": "^18.2.20",
+    "@types/react-datepicker": "^4.15.0",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "@types/react-datepicker": "^4.15.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
@@ -63,13 +65,13 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.13",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "postcss": "^8.4.27",
     "prettier": "^3.0.1",
     "storybook": "7.2.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
-    "vite": "^4.4.5",
-    "lint-staged": "^13.2.3"
+    "vite": "^4.4.5"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": []
