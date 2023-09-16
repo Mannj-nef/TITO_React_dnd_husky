@@ -9,12 +9,12 @@ export interface IProject {
   admins: string[]
 }
 
-export interface IProjectWorkSpace {
+export interface IProjectDetail {
   _id: string
   name: string
   avatar?: string
   cover_photo?: string
   members: IUser[]
   columns: IColumnModel[]
-  admins: string[]
+  admins: IUser[]
 }
