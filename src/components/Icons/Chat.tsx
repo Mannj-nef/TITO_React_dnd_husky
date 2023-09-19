@@ -1,4 +1,4 @@
-const Chat = ({ size = 6 }: { size?: number }) => {
+const Chat = () => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,7 +6,7 @@ const Chat = ({ size = 6 }: { size?: number }) => {
       viewBox='0 0 24 24'
       strokeWidth={1.5}
       stroke='currentColor'
-      className={`w-${size} h-${size}`}
+      className={`w-4 h-4`}
     >
       <path
         strokeLinecap='round'
