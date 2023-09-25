@@ -2,8 +2,11 @@ const QUERY_KEY = {
   LOGIN: 'login',
   SIGN_UP: 'signup',
   GET_ME: 'get_me',
+  UPDATE_ME: 'update_me',
+  LOGOUT: 'logout',
 
   // board
+  CEATE_BOARD: 'create_board',
   GET_BOARD: 'get_board',
   GET_BOARD_DETAIL: 'board_detail',
   REMOVE_BOARD: 'remove_board',
