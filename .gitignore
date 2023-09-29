@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .env
+client_secret_google_oauth_2.json
 
 # Editor directories and files
 .vscode/*
