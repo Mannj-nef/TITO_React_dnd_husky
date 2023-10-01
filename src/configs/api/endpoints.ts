@@ -35,8 +35,16 @@ const API_ENDPOINTS = {
   COMMENTS_UPDATE: '/comments/update',
   COMMENT_DELETE: '/comments/remove',
 
+  /**
+   * API Provider
+   */
+
   // image upload clound
-  IMGBB_API: `https://api.imgbb.com/1/upload?key=${IMGBB.IMAGE_API_KEY}`
+  IMGBB_API: `https://api.imgbb.com/1/upload?key=${IMGBB.IMAGE_API_KEY}`,
+
+  // google outh2
+  OAUTH_USERINFO_FROFILE: 'https://www.googleapis.com/auth/userinfo.profile',
+  OAUTH_USERINFO_EMAIL: 'https://www.googleapis.com/auth/userinfo.email'
 } as const
 
 export default API_ENDPOINTS

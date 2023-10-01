@@ -1,14 +1,12 @@
+import { API_ENDPOINTS } from '~/configs/api'
 import { OAUTH } from '~/configs/env/'
 
 const generateOauthUrl = () => {
   const bodyData = {
     client_id: OAUTH.GOOGLE_CLIENT_ID,
-    redirect_uri: OAUTH.GOOGLE_REDIRECT_SERVER,
+    redirect_uri: OAUTH.GOOGLE_REDIRECT_SERVER_URL,
     response_type: 'code',
-    scope: [
-      'https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email'
-    ].join(' '),
+    scope: [API_ENDPOINTS.OAUTH_USERINFO_EMAIL, API_ENDPOINTS.OAUTH_USERINFO_FROFILE].join(' '),
     // state: 'pass-through value',
     access_type: 'offline',
     prompt: 'consent'
