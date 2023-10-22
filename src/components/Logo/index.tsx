@@ -17,7 +17,7 @@ const LogoApp = ({ logo, className, display = '', size = 'lg' }: ILogo) => {
       } `}
       to={ROUTER.HOME.path}
     >
-      <img src={logo} alt='' className='w-full h-full object-cover block rounded-lg' />
+      <img src={logo} alt='husky-dnd' className='w-full h-full object-cover block rounded-lg' />
     </Link>
   )
 }

@@ -16,7 +16,7 @@ const DashBoardBitrhDay = () => {
 
       <div className='overlay bg-blackToWhite absolute w-full h-full'></div>
       <div className='w-full h-full'>
-        <img src={MOUNTAIN_PUPLE} className='w-full h-full block object-cover top-0 left-0' alt='' />
+        <img src={MOUNTAIN_PUPLE} className='w-full h-full block object-cover top-0 left-0' alt='mountain' />
       </div>
 
       <div className='absolute left-5 bottom-5 '>

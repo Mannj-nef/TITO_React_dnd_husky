@@ -13,7 +13,7 @@ const DashBoardCreateWorkPage = () => {
       <div className='overlay bg-blackToWhite absolute w-full h-full'></div>
 
       <div className='h-full max-h-[100px]'>
-        <img src={GREEN_CREATE} className='w-full h-full block object-cover' alt='' />
+        <img src={GREEN_CREATE} className='w-full h-full block object-cover' alt='green' />
       </div>
 
       <div className='absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  flex gap-3 font-semibold'>
