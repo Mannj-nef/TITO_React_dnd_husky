@@ -4,11 +4,12 @@ import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
 import { ArrowLeftIcon, CloseIcon, DeleteIcon, DotsEllipsisIcon } from '~/components/Icons'
 import QUERY_KEY from '~/configs/reactQuery'
+import useToggle from '~/hooks/useToggle'
 import { removeProject } from '~/services/projects'
 import useWorkSpace from '~/store/workSpace'
 
 const Action = ({ boardId }: { boardId: string }) => {
-  const [showAction, setShowAction] = useState(false)
+  const { show: showAction, handleShow: setShowAction } = useToggle()
 
   const setProjects = useWorkSpace((state) => state.setProjects)
   const projects = useWorkSpace((state) => state.projects)
