@@ -1,7 +1,8 @@
-import { memo, useState } from 'react'
+import { memo } from 'react'
+import useToggle from '~/hooks/useToggle'
 
 const Toggle = () => {
-  const [transparentSidebar, setTransparentSidebar] = useState(false)
+  const { show: transparentSidebar, handleShow: setTransparentSidebar } = useToggle()
 
   return (
     <div
@@ -10,11 +11,7 @@ const Toggle = () => {
       }`}
       onClick={() => setTransparentSidebar(!transparentSidebar)}
     >
-      <div
-        className={`w-5 h-5 bg-white rounded-full relative ease-in ${
-          transparentSidebar ? 'ml-auto' : ''
-        }`}
-      ></div>
+      <div className={`w-5 h-5 bg-white rounded-full relative ease-in ${transparentSidebar ? 'ml-auto' : ''}`}></div>
     </div>
   )
 }

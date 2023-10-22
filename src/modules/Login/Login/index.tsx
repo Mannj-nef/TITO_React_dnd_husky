@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Input } from '~/components/Inputs'
 import Button from '~/components/Button'
@@ -14,6 +14,7 @@ import QUERY_KEY from '~/configs/reactQuery'
 import useUser from '~/store/user'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
+import useToggle from '~/hooks/useToggle'
 
 interface ILogin {
   handleShowLogin: (isToLogin: boolean) => void
@@ -36,7 +37,7 @@ const Login = ({ handleShowLogin }: ILogin) => {
 
   const navigate = useNavigate()
 
-  const [showPassword, setShowPassword] = useState(false)
+  const { show: showPassword, handleShow: setShowPassword } = useToggle()
 
   const { handleSubmit, control, setValue, setFocus, watch, reset } = useForm<IFormInputs>()
   const passwordWatch = watch('password')
@@ -73,12 +74,7 @@ const Login = ({ handleShowLogin }: ILogin) => {
       <form onSubmit={handleSubmit(onLogin)} className='flex flex-col flex-1' autoComplete='off'>
         <div className='flex flex-col gap-4 mt-10'>
           <Input name='email' control={control} placeholder={email} disabled />
-          <Input
-            name='password'
-            control={control}
-            type={showPassword ? 'text' : 'password'}
-            placeholder='Password'
-          >
+          <Input name='password' control={control} type={showPassword ? 'text' : 'password'} placeholder='Password'>
             <WrappIconPassword showPassword={showPassword} setShowPassword={setShowPassword} />
           </Input>
           <p className='text-primary cursor-pointer'>Forgot password?</p>
