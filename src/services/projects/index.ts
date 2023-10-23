@@ -1,6 +1,7 @@
 import http from '~/apis/public'
 import { API_ENDPOINTS } from '~/configs/api'
 import {
+  RequestUpdateBoard,
   RequestUpdateBoardOrderedColumn,
   ResponseGetProjectDetail,
   ResponseGetProjects
@@ -13,17 +14,12 @@ export const getProjects = async () => {
 }
 
 export const getProjectDetail = async (projectId: string) => {
-  const { data } = await http.get<ResponseGetProjectDetail>(
-    `${API_ENDPOINTS.PROJECTS}/${projectId}`
-  )
+  const { data } = await http.get<ResponseGetProjectDetail>(`${API_ENDPOINTS.PROJECTS}/${projectId}`)
 
   return data
 }
 
-export const createProject = async (payload: {
-  projectName: string
-  backGroundUploadUrl: string | null
-}) => {
+export const createProject = async (payload: { projectName: string; backGroundUploadUrl: string | null }) => {
   const project = {
     name: payload.projectName,
     backGroundProjectUrl: payload.backGroundUploadUrl
@@ -40,7 +36,9 @@ export const removeProject = async (boardId: string) => {
   return data
 }
 
-export const updateProjectDetail = () => {}
+export const updateProjectDetail = async (poayload: RequestUpdateBoard) => {
+  await http.patch(API_ENDPOINTS.PROJECT_UPDATE, poayload)
+}
 
 export const updateOrderdColumn = async (payload: RequestUpdateBoardOrderedColumn) => {
   await http.patch(API_ENDPOINTS.PROJECTS_UPDATE_COLUMN, payload)
