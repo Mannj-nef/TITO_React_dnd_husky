@@ -11,6 +11,12 @@ export type RequestUpdateBoardOrderedColumn = {
   columns: string[]
 }
 
+export type RequestUpdateBoard = {
+  boardId: string
+  name: string
+  cover_photo: string
+}
+
 // column
 export type ResquestCreateColumn = {
   boardId: string
