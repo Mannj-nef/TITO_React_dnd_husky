@@ -20,7 +20,7 @@ const LoginLayout = () => {
   return (
     <div className='flex h-screen overflow-hidden relative'>
       <div className='flex-1'>
-        <img src={IMAGE_BANNER_LOGIN} className='w-full h-full object-cover block' alt='' />
+        <img src={IMAGE_BANNER_LOGIN} className='w-full h-full object-cover block' alt='banner' />
       </div>
 
       <div className='flex-1 flex items-center '>
@@ -31,16 +31,12 @@ const LoginLayout = () => {
           <div className=' max-w-[350px] mt-7'>
             <OauthLogin />
 
-            <Link
-              to={ROUTER.LOGIN.SIGN_UP}
-              className='btn w-full text-white font-medium bg-primary'
-            >
+            <Link to={ROUTER.LOGIN.SIGN_UP} className='btn w-full text-white font-medium bg-primary'>
               Create account
             </Link>
 
             <p className='text-xs mt-2'>
-              By registering, you agree to the{' '}
-              <span className='text-primary cursor-pointer'>Terms of Service</span> and{' '}
+              By registering, you agree to the <span className='text-primary cursor-pointer'>Terms of Service</span> and{' '}
               <span className='text-primary cursor-pointer'>Privacy Policy</span>, including{' '}
               <span className='text-primary cursor-pointer'>Cookie Use.</span>
             </p>
