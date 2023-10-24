@@ -9,4 +9,5 @@ export interface IUser {
   email: string
   date_of_birth: Date
   avatar: string
+  backGround?: string
 }

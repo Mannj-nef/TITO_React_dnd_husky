@@ -3,11 +3,13 @@ import { API_ENDPOINTS } from '~/configs/api'
 import {
   RequestLogin,
   RequestRegister,
+  RequestUpdateMe,
   ResponseGetMe,
   ResponseLogin,
   ResponseLogout,
   ResponseRefreshToken,
-  ResponseRegister
+  ResponseRegister,
+  ResponseUpdateMe
 } from '~/types/users'
 import { getToken } from '~/utils/handleToken'
 
@@ -43,6 +45,12 @@ export const refreshToken = async (refreshToken: string) => {
   const { data } = await http.post<ResponseRefreshToken>(API_ENDPOINTS.REFRESH_TOKEN, {
     refreshToken
   })
+
+  return data
+}
+
+export const updateMe = async (payload: RequestUpdateMe) => {
+  const { data } = await http.patch<ResponseUpdateMe>(API_ENDPOINTS.UPDATE_ME, payload)
 
   return data
 }
