@@ -20,7 +20,7 @@ const LoginLayout = () => {
   return (
     <div className='flex h-screen overflow-hidden relative'>
       <div className='flex-1'>
-        <img src={IMAGE_BANNER_LOGIN} className='w-full h-full object-cover block' alt='banner' />
+        <img src={IMAGE_BANNER_LOGIN} className='w-full h-full object-cover block' alt='' />
       </div>
 
       <div className='flex-1 flex items-center '>
