@@ -1,4 +1,4 @@
-import { useRef, useState, useLayoutEffect } from 'react'
+import { useRef, useState, useLayoutEffect, memo } from 'react'
 import useUser from '~/store/user'
 import Portal from '../Portal'
 import Logout from '../Logout'
@@ -6,6 +6,9 @@ import { LogoutIcon, ProfileIcon } from '../Icons'
 import ROUTER from '~/configs/router'
 import { Link } from 'react-router-dom'
 import useToggle from '~/hooks/useToggle'
+import { AVATAR_DEFAULT } from '~/mocks/images'
+import { withErrorBoundary } from 'react-error-boundary'
+import ErrorComponent from '../Error'
 
 const space = 10
 
@@ -37,7 +40,11 @@ const User = () => {
     <>
       <div ref={nodeRef} className='flex gap-2 items-center mr-5 cursor-pointer' onClick={() => setShowAction(true)}>
         <div className='w-10 h-10 flex-shrink-0'>
-          <img src={user?.avatar} className='w-full h-full block object-cover rounded-lg' alt={user?.name} />
+          <img
+            src={user?.avatar || AVATAR_DEFAULT}
+            className='w-full h-full block object-cover rounded-lg'
+            alt={user?.name}
+          />
         </div>
         <div className='leading-4'>
           <p className='font-semibold '>{user?.name.slice(0, 20)}</p>
@@ -76,4 +83,6 @@ const User = () => {
   )
 }
 
-export default User
+export default withErrorBoundary(memo(User), {
+  FallbackComponent: ErrorComponent
+})

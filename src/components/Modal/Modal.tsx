@@ -9,11 +9,10 @@ const Modal = ({ children }: { children: ReactNode }) => {
   const setShow = useModal((state) => state.setShow)
   const resetModal = useModal((state) => state.resetModal)
 
-  const handleReset = () =>
-    useCallback(() => {
-      setShow()
-      resetModal()
-    }, [isShow])
+  const handleReset = useCallback(() => {
+    setShow()
+    resetModal()
+  }, [isShow])
 
   return (
     <Portal>

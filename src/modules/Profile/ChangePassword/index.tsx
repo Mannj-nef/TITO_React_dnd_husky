@@ -91,7 +91,7 @@ const ChangePassword = () => {
                 type={isShowPassword ? 'text' : 'password'}
                 name='passwordChange'
                 control={control}
-                placeholder='Enter yout password'
+                placeholder='Enter your current password'
                 error={errors.passwordChange?.message}
               >
                 <WrappIconPassword showPassword={isShowPassword} setShowPassword={setIsShowPassword} />

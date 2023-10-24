@@ -20,5 +20,5 @@ export type RequestUpdateMe = {
   date_of_birth?: Date
   password?: string
   avatar?: string
-  backGround?: string
+  background?: string
 }

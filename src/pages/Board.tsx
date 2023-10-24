@@ -15,6 +15,7 @@ import useWorkSpace from '~/store/workSpace'
 
 const Board = () => {
   const { projectId } = useParams()
+
   const board = useWorkSpace((state) => state.projectDetail)
   const setProjectDetail = useWorkSpace((state) => state.setProjectDetail)
 
@@ -71,11 +72,7 @@ const Board = () => {
             </div>
           </div>
 
-          <DragOverlayPortal
-            activeCard={activeCard}
-            activeColumn={activeColumn}
-            typeActiveDrag={typeActiveDrag}
-          />
+          <DragOverlayPortal activeCard={activeCard} activeColumn={activeColumn} typeActiveDrag={typeActiveDrag} />
         </DndContext>
       )}
     </>

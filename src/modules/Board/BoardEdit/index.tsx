@@ -1,14 +1,14 @@
-import { useRef, useLayoutEffect, useState, ChangeEvent, memo, useEffect } from 'react'
-import { ExtendIcon, PhotoIcon } from '~/components/Icons'
+import { useRef, useState, memo, useEffect, useCallback } from 'react'
+import { ExtendIcon } from '~/components/Icons'
 import useWorkSpace from '~/store/workSpace'
 import { useMutation } from '@tanstack/react-query'
 import QUERY_KEY from '~/configs/reactQuery'
 import { RequestUpdateBoard } from '~/types/projects'
 import { updateProjectDetail } from '~/services/projects'
 import Button from '~/components/Button'
-import useUploadImage from '~/hooks/useUploadImageBB'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
+import SetBackGround from '~/components/SetBackGround'
 
 interface IBoardEdit {
   setShow: (isShow: boolean) => void
@@ -17,8 +17,6 @@ interface IBoardEdit {
 const BoardEdit = ({ setShow }: IBoardEdit) => {
   const projectDetail = useWorkSpace((state) => state.projectDetail)
   const setProjectDetail = useWorkSpace((state) => state.setProjectDetail)
-
-  const { handleUploadImage } = useUploadImage()
 
   const [title, setTitle] = useState(projectDetail?.name)
   const [background, setBackground] = useState(projectDetail?.cover_photo)
@@ -30,12 +28,12 @@ const BoardEdit = ({ setShow }: IBoardEdit) => {
     mutationFn: (payload: RequestUpdateBoard) => updateProjectDetail(payload)
   })
 
-  const handleChangeBackground = async (e: ChangeEvent<HTMLInputElement>) => {
-    if (!projectDetail) return
-
-    const imageData = await handleUploadImage(e)
-    setBackground(imageData.url)
-  }
+  const handleChangeBackground = useCallback(
+    (bgImage: string) => {
+      setBackground(bgImage)
+    },
+    [background]
+  )
 
   const updateBoard = () => {
     if (!projectDetail) return
@@ -72,13 +70,7 @@ const BoardEdit = ({ setShow }: IBoardEdit) => {
             <img className='w-full h-full object-cover ' src={background} alt='' />
           </div>
 
-          <div className='absolute bottom-2 right-2'>
-            <label className='flex items-center text-white gap-2 cursor-pointer p-2 bg-slate-500 bg-opacity-80 rounded-lg'>
-              <input className='hidden' type='file' onChange={handleChangeBackground} />
-              <PhotoIcon />
-              <span className='text-white text-xs'>Background</span>
-            </label>
-          </div>
+          <SetBackGround handleBG={handleChangeBackground} />
         </div>
       )}
 

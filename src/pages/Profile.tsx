@@ -1,11 +1,10 @@
 import Button from '~/components/Button'
-import { ChangePassword, TopProfile, WrappreFeature } from '~/modules/Profile'
+import { ChangePassword, CoverPhoto, TopProfile, WrappreFeature } from '~/modules/Profile'
 import DatePicker from 'react-datepicker'
 import useUser from '~/store/user'
 import { useEffect, useState } from 'react'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
-import { BACKGROUND_PROJILE } from '~/mocks/images'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -16,6 +15,8 @@ import { useMutation } from '@tanstack/react-query'
 import QUERY_KEY from '~/configs/reactQuery'
 import { RequestUpdateMe } from '~/types/users'
 import { updateMe } from '~/services/users'
+import { toast } from 'react-toastify'
+import { USER_MESSAGE } from '~/constants/messages'
 
 interface IFormInputs {
   email: string
@@ -53,14 +54,18 @@ const Profile = () => {
 
     const userUpdate: RequestUpdateMe = {
       ...value,
-      backGround: '' || user.backGround,
-      avatar: '' || user.avatar,
+      background: user.background,
+      avatar: user.avatar,
       date_of_birth: birthDay || user.date_of_birth
     }
 
     mutate(userUpdate, {
       onSuccess: (data) => {
-        // setUser(data.user)
+        setUser(data.user)
+        toast.success(USER_MESSAGE.UPDATE_USER_SUCCESS)
+      },
+      onError: () => {
+        toast.error(USER_MESSAGE.UPDATE_USER_ERROR)
       }
     })
   }
@@ -84,11 +89,7 @@ const Profile = () => {
   return (
     <div className='-m-3'>
       {/* banner */}
-      <div className=''>
-        <div className='w-full h-[150px]'>
-          <img className='w-full h-full object-cover' src={BACKGROUND_PROJILE} alt='' />
-        </div>
-      </div>
+      <CoverPhoto />
 
       {/* content */}
       <div className='p-5'>
@@ -120,7 +121,7 @@ const Profile = () => {
           <DatePicker
             selected={birthDay}
             onChange={(date: Date) => setBirthDay(date)}
-            dateFormat='dd/MM/yyy'
+            dateFormat='MM/dd/yyy'
             className='p-3 border-2 !rounded-lg w-[350px] shadow-boxPrimary'
           />
           {password ? (

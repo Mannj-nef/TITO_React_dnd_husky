@@ -1,40 +1,32 @@
-import { ChangeEvent, memo } from 'react'
+import { memo, useCallback } from 'react'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
-import { PhotoIcon } from '~/components/Icons'
-import useUploadImage from '~/hooks/useUploadImageBB'
+import SetBackGround from '~/components/SetBackGround'
 import useModal from '~/store/modal'
 
 const BackGround = () => {
   const cardEdit = useModal((state) => state.cardEdit)
   const setCardEdit = useModal((state) => state.setCardEdit)
 
-  const { handleUploadImage } = useUploadImage()
+  const handleChangeBackgroundURL = useCallback(
+    (bgImage: string) => {
+      if (!cardEdit) return
 
-  const handleChangeBackgroundURL = async (e: ChangeEvent<HTMLInputElement>) => {
-    if (!cardEdit) return
-
-    const imageData = await handleUploadImage(e)
-
-    setCardEdit({
-      ...cardEdit,
-      imgUrl: imageData.url
-    })
-  }
+      setCardEdit({
+        ...cardEdit,
+        imgUrl: bgImage
+      })
+    },
+    [cardEdit]
+  )
 
   return (
     <div className='relative'>
       <div className='h-[150px]'>
-        <img className='w-full h-full object-cover ' src={cardEdit?.imgUrl} alt='' />
+        <img className='w-full h-full object-cover ' src={cardEdit?.imgUrl} alt={cardEdit?.title} />
       </div>
 
-      <div className='absolute bottom-2 right-2'>
-        <label className='flex items-center text-white gap-2 cursor-pointer p-2 bg-slate-500 bg-opacity-80 rounded-lg'>
-          <input className='hidden' type='file' onChange={handleChangeBackgroundURL} />
-          <PhotoIcon />
-          <span className='text-white text-xs'>Background</span>
-        </label>
-      </div>
+      <SetBackGround handleBG={handleChangeBackgroundURL} />
     </div>
   )
 }

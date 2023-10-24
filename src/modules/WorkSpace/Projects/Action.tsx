@@ -7,6 +7,8 @@ import QUERY_KEY from '~/configs/reactQuery'
 import useToggle from '~/hooks/useToggle'
 import { removeProject } from '~/services/projects'
 import useWorkSpace from '~/store/workSpace'
+import { toast } from 'react-toastify'
+import { BOARDS_MESSAGE } from '~/constants/messages'
 
 const Action = ({ boardId }: { boardId: string }) => {
   const { show: showAction, handleShow: setShowAction } = useToggle()
@@ -25,6 +27,9 @@ const Action = ({ boardId }: { boardId: string }) => {
       onSuccess: () => {
         const newProject = projects.filter((board) => board._id !== boardId)
         setProjects(newProject)
+      },
+      onError: () => {
+        toast.error(BOARDS_MESSAGE.CAN_NOT_REMOVE_BOARD)
       }
     })
   }

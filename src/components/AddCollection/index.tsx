@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { FormEvent, memo, useEffect, useRef } from 'react'
 import { CloseIcon, DocumentPlusIcon } from '../Icons'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '../Error'
@@ -16,6 +16,19 @@ interface IAddCollection {
 const AddCollection = (props: IAddCollection) => {
   const { title = '', show, placeholder, setShow, handleAddCollection, setValue } = props
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    handleAddCollection()
+  }
+
+  useEffect(() => {
+    if (!inputRef.current) return
+
+    inputRef.current.focus()
+  }, [inputRef, show])
+
   return (
     <div className='w-[250px] rounded-lg flex-shrink-0 h-fit bg-white shadow-boxSecondary'>
       {!show ? (
@@ -29,8 +42,9 @@ const AddCollection = (props: IAddCollection) => {
           <span>{title}</span>
         </div>
       ) : (
-        <div className='p-4 rounded-lg shadow-boxThird'>
+        <form className='p-4 rounded-lg shadow-boxThird' onSubmit={handleSubmit}>
           <input
+            ref={inputRef}
             className='border px-3 py-1 rounded-md w-full outline-none'
             type='text'
             placeholder={placeholder}
@@ -38,11 +52,7 @@ const AddCollection = (props: IAddCollection) => {
           />
 
           <div className='mt-2 flex items-center gap-3'>
-            <Button
-              className='!py-1 !px-3 !rounded-md text-sm text-white !w-fit '
-              type='primary'
-              onClick={handleAddCollection}
-            >
+            <Button className='!py-1 !px-3 !rounded-md text-sm text-white !w-fit ' type='primary' buttonType='submit'>
               {title}
             </Button>
 
@@ -50,7 +60,7 @@ const AddCollection = (props: IAddCollection) => {
               <CloseIcon />
             </span>
           </div>
-        </div>
+        </form>
       )}
     </div>
   )

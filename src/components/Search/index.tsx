@@ -15,7 +15,7 @@ const Search = ({ className }: ISearch) => {
         <input
           type='text'
           className='px-5 w-full   bg-transparent text-xs lg:text-sm font-normal text-text1 outline-none flex-1'
-          placeholder='Do fundrise now'
+          placeholder='Search now'
         />
         <Button className='text-white flex items-center !px-4 !rounded-2xl' type='primary'>
           <SearchIcon />

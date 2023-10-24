@@ -10,7 +10,7 @@ const ROUTER = {
   WORKSPACE: {
     path: '/workspace',
     name: 'Workspace',
-    DETAIL: '/workspace/:project'
+    DETAIL: '/workspace/:projectId'
   },
   CALENDAR: {
     path: '/calendar',
