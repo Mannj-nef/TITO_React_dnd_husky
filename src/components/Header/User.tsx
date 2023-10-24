@@ -5,6 +5,7 @@ import Logout from '../Logout'
 import { LogoutIcon, ProfileIcon } from '../Icons'
 import ROUTER from '~/configs/router'
 import { Link } from 'react-router-dom'
+import useToggle from '~/hooks/useToggle'
 
 const space = 10
 
@@ -13,7 +14,8 @@ const User = () => {
 
   const nodeRef = useRef<HTMLDivElement>(null)
 
-  const [showAction, setShowAction] = useState(false)
+  const { show: showAction, handleShow: setShowAction } = useToggle()
+
   const [positon, setPositon] = useState({
     top: 0,
     right: 0

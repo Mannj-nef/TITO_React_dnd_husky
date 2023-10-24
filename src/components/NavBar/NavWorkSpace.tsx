@@ -1,10 +1,11 @@
-import { useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import { NavLink } from 'react-router-dom'
 import { WORKSPACE } from '~/mocks/navBar'
 import NavWorkSpaceItem from './NavWorkSpaceItem'
+import useToggle from '~/hooks/useToggle'
 
 const NavWorkSpace = () => {
-  const [showWordPages, setShowWordPages] = useState(false)
+  const { show: showWordPages, handleShow: setShowWordPages } = useToggle()
 
   const handleShow = () => {
     if (showWordPages) return
