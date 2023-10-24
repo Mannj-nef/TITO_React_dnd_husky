@@ -13,3 +13,12 @@ export type RequestRegister = {
 export type RequestLogout = {
   refreshToken: string
 }
+
+export type RequestUpdateMe = {
+  email: string
+  name: string
+  date_of_birth?: Date
+  password?: string
+  avatar?: string
+  backGround?: string
+}
