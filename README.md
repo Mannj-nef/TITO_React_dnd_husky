@@ -25,3 +25,7 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+# Video demo
+
+[video](https://github-production-user-asset-6210df.s3.amazonaws.com/88712021/281640186-5ce8202d-79fa-4138-a22a-72caef1b8432.mp4)

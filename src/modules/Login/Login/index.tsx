@@ -15,6 +15,8 @@ import useUser from '~/store/user'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
 import useToggle from '~/hooks/useToggle'
+import { toast } from 'react-toastify'
+import { USER_MESSAGE } from '~/constants/messages'
 
 interface ILogin {
   handleShowLogin: (isToLogin: boolean) => void
@@ -62,6 +64,9 @@ const Login = ({ handleShowLogin }: ILogin) => {
         onSuccess: () => {
           navigate(ROUTER.HOME.path)
           reset()
+        },
+        onError: () => {
+          toast.error(USER_MESSAGE.EMAIL_OR_PASSWORD_INCORRECT)
         }
       }
     )
