@@ -1,0 +1,16 @@
+export { default as LOGO } from '~/assets/images/Logo-husky.png'
+export { default as TODO_TEMPLATE } from '~/assets/images/todo.avif'
+export { default as GREEN_CREATE } from '~/assets/images/greenCreate.avif'
+export { default as MOUNTAIN_PUPLE } from '~/assets/images/mountains-purple.avif'
+export { default as DIGITSL_SCREENS } from '~/assets/images/DigitalScreens.avif'
+export { default as IMAGE_BANNER_LOGIN } from '~/assets/images/banner-login-todo.jpg'
+export { default as GOOGLE_ICON } from '~/assets/icons/Google-Icon-PNG_rwscww.png'
+export { default as APPLE_ICON } from '~/assets/icons/apple-logo-icon.png'
+export { default as IMAGE_UPLOAD } from '~/assets/images/img-upload.png'
+export { default as BACKGROUND_PROJILE } from '~/assets/images/baground-sky-mountain.avif'
+
+export const SYSTEM_THEME = 'https://trello.com/assets/37c3bf748ee7dbf33e66.svg'
+export const DARK_THEME = 'https://trello.com/assets/cb4097b01b57e5d91727.svg'
+export const LIGHT_THEME = 'https://trello.com/assets/a3a279edd7e5baaef4f7.svg'
+export const AVATAR_DEFAULT =
+  'https://media.istockphoto.com/id/1016744004/vector/profile-placeholder-image-gray-silhouette-no-photo.jpg?s=612x612&w=0&k=20&c=mB6A9idhtEtsFXphs1WVwW_iPBt37S2kJp6VpPhFeoA='
