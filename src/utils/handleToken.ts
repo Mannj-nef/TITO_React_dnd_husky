@@ -6,7 +6,7 @@ const refreshTokenKey = 'refreshToken'
 
 const objConfigCookies: CookieAttributes = {
   expires: 7,
-  domain: '',
+  domain: 'localhost',
   path: '/'
 }
 

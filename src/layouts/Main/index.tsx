@@ -36,6 +36,7 @@ const MainLayout = () => {
 
   useEffect(() => {
     if (token) return
+
     navigate(ROUTER.LOGIN.path)
   }, [token])
 
