@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from 'react-router'
+import { ReactNode } from 'react'
 import NavBar from '~/components/NavBar'
 import Header from '~/components/Header'
 import { CreateProjectModal, Modal } from '~/components/Modal'
@@ -10,18 +10,15 @@ import QUERY_KEY from '~/configs/reactQuery'
 import useWorkSpace from '~/store/workSpace'
 import useUser from '~/store/user'
 import { useEffect } from 'react'
-import ROUTER from '~/configs/router'
 import { getToken } from '~/utils/handleToken'
 import { getMe } from '~/services/users'
 
-const MainLayout = () => {
+const MainLayout = ({ children }: { children: ReactNode }) => {
   const cardEdit = useModal((state) => state.cardEdit)
   const setProjects = useWorkSpace((state) => state.setProjects)
   const setUser = useUser((state) => state.setUser)
 
   const { token } = getToken()
-
-  const navigate = useNavigate()
 
   const { data: responseUser } = useQuery({ queryKey: [QUERY_KEY.GET_ME], queryFn: getMe })
 
@@ -33,11 +30,6 @@ const MainLayout = () => {
     },
     enabled: Boolean(token)
   })
-
-  useEffect(() => {
-    if (token) return
-    navigate(ROUTER.LOGIN.path)
-  }, [token])
 
   useEffect(() => {
     if (!responseUser) return
@@ -55,7 +47,7 @@ const MainLayout = () => {
         <Modal>{cardEdit ? <CardEdit /> : <CreateProjectModal />}</Modal>
 
         <div className='bg-white bg-opacity-30 rounded-xl p-3 shadow-boxPrimary w-full h-contentScreen overflow-x-hidden overscroll-y-auto'>
-          <Outlet />
+          {children}
         </div>
       </div>
     </div>

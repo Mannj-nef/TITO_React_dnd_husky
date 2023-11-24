@@ -7,7 +7,7 @@ export type RequestRegister = {
   email: string
   password: string
   confirmPassword: string
-  date: Date
+  date_of_birth: Date
 }
 
 export type RequestLogout = {

@@ -30,11 +30,7 @@ export const handleErrorResponse = async (error: AxiosError) => {
     toast.error(prevRequest.data.message)
   }
 
-  if (
-    status === HTTP_STATUS.FORBIDDEN &&
-    axios.isAxiosError(error) &&
-    url !== API_ENDPOINTS.REFRESH_TOKEN
-  ) {
+  if (status === HTTP_STATUS.FORBIDDEN && axios.isAxiosError(error) && url !== API_ENDPOINTS.REFRESH_TOKEN) {
     await handleRefreshToken()
   }
 }

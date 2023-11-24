@@ -53,7 +53,7 @@ const SignUp = () => {
 
   const handleSignUp = async (values: IFormInputs) => {
     mutate(
-      { ...values, date: birthDay },
+      { ...values, date_of_birth: birthDay },
       {
         onSuccess: () => {
           reset()
@@ -100,15 +100,11 @@ const SignUp = () => {
           <div className='mt-8'>
             <h4 className='font-bold'>Date of birth</h4>
             <p className='text-sm'>
-              This will not be shown publicly. Confirm your own age, even if this account is for a
-              business, a pet, or something else.
+              This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or
+              something else.
             </p>
             <div className='my-5'>
-              <DatePicker
-                selected={birthDay}
-                onChange={(date: Date) => setBirthDay(date)}
-                dateFormat='dd/MM/yyy'
-              />
+              <DatePicker selected={birthDay} onChange={(date: Date) => setBirthDay(date)} dateFormat='dd/MM/yyy' />
             </div>
           </div>
 
@@ -117,11 +113,7 @@ const SignUp = () => {
             buttonType='submit'
             className='bg-text1 text-white font-bold w-full p-1 mt-auto'
           >
-            {isLoading ? (
-              <span className='circle-loading !left-0 !translate-x-0'></span>
-            ) : (
-              'Sign up'
-            )}
+            {isLoading ? <span className='circle-loading !left-0 !translate-x-0'></span> : 'Sign up'}
           </Button>
         </form>
       </div>

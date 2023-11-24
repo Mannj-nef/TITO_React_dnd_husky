@@ -1,11 +1,11 @@
-import { ReactNode, Suspense } from 'react'
+import { ReactNode } from 'react'
 
 interface IApp {
   children: ReactNode
 }
 
 function App({ children }: IApp) {
-  return <Suspense>{children}</Suspense>
+  return children
 }
 
 export default App
