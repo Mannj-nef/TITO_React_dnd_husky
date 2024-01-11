@@ -8,7 +8,7 @@ import LoginLayout from '~/layouts/Login'
 import MainLayout from '~/layouts/Main'
 
 // page
-const Login = lazy(() => import('~/pages/LogIn'))
+const Login = lazy(() => import('~/pages/Login'))
 const SignUp = lazy(() => import('~/pages/SignUp'))
 const Home = lazy(() => import('~/pages/Home'))
 const WorkSpace = lazy(() => import('~/pages/WorkSpace'))
