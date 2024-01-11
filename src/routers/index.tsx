@@ -1,6 +1,7 @@
-import { lazy } from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { Navigate, Outlet, createBrowserRouter } from 'react-router-dom'
 import ROUTER from '~/configs/router'
+import { getToken } from '~/utils/handleToken'
 
 // layout
 import LoginLayout from '~/layouts/Login'
@@ -16,9 +17,37 @@ const Setting = lazy(() => import('~/pages/Setting'))
 const Calendar = lazy(() => import('~/pages/Calendar'))
 const Profile = lazy(() => import('~/pages/Profile'))
 
+const ProtectedRoute = () => {
+  const { token } = getToken()
+
+  return token ? (
+    <MainLayout>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </MainLayout>
+  ) : (
+    <Navigate to={ROUTER.LOGIN.path} />
+  )
+}
+
+const RejectedRoute = () => {
+  const { token } = getToken()
+
+  return !token ? (
+    <LoginLayout>
+      <Suspense>
+        <Outlet />
+      </Suspense>
+    </LoginLayout>
+  ) : (
+    <Navigate to={ROUTER.HOME.path} />
+  )
+}
+
 const router = createBrowserRouter([
   {
-    element: <MainLayout />,
+    element: <ProtectedRoute />,
     children: [
       {
         path: ROUTER.HOME.path,
@@ -47,7 +76,7 @@ const router = createBrowserRouter([
     ]
   },
   {
-    element: <LoginLayout />,
+    element: <RejectedRoute />,
     path: ROUTER.LOGIN.path,
     children: [
       {

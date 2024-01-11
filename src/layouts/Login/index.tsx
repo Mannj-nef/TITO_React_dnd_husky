@@ -1,19 +1,12 @@
-import { useEffect } from 'react'
-import { Outlet } from 'react-router'
+import { ReactNode } from 'react'
 import ROUTER from '~/configs/router'
 import { OauthLogin } from '~/modules/Login'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { IMAGE_BANNER_LOGIN } from '~/mocks/images'
 import { getToken } from '~/utils/handleToken'
 
-const LoginLayout = () => {
+const LoginLayout = ({ children }: { children: ReactNode }) => {
   const { token } = getToken()
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!token) return
-    navigate(ROUTER.HOME.path)
-  }, [token])
 
   if (token) return
 
@@ -55,7 +48,7 @@ const LoginLayout = () => {
         </div>
       </div>
 
-      <Outlet />
+      {children}
     </div>
   )
 }
