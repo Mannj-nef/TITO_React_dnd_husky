@@ -1,4 +1,4 @@
-import { ChangeEvent, memo, useCallback, useState } from 'react'
+import { ChangeEvent, memo, useCallback } from 'react'
 import Button from '~/components/Button'
 import Comments from './Comment'
 import useModal from '~/store/modal'
