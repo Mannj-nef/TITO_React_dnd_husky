@@ -1,5 +1,5 @@
-import DashBoardBitrhDay from './BitrhDay'
-import DashBoaedMyTeam from './MyTeam'
+import DashBoardBirthDay from './BirthDay'
+import DashBoardMyTeam from './MyTeam'
 import DashBoardTemplate from './Template'
 import DashBoardInbox from './Inbox'
 import DashBoardCreateWorkPage from './CreateWorkPage'
@@ -10,29 +10,33 @@ import ErrorComponent from '~/components/Error'
 
 const DashBoardContent = () => {
   return (
-    <div className='grid grid-cols-4 grid-rows-3 gap-5 h-full mt-5'>
-      <div className='col-start-1'>
-        <DashBoaedMyTeam></DashBoaedMyTeam>
+    <div className='flex flex-col xl:flex-row 2xl:flex-row h-auto gap-5 mt-5'>
+      <div className='flex-1 grid grid-cols-2 grid-rows-2 gap-5 max-h-[340px]'>
+        <div className='col-start-1'>
+          <DashBoardMyTeam />
+        </div>
+
+        <div className='col-start-1 row-start-2 row-end-4 xs:col-start-2 xs:row-start-1 xs:row-end-2'>
+          <DashBoardBirthDay />
+        </div>
+
+        <div className='col-start-2 row-start-1 row-end-4 xs:col-start-1 xs:row-start-2 xs:col-end-3 xs:row-end-2'>
+          <DashBoardTemplate />
+        </div>
       </div>
 
-      <div className='col-start-1 row-start-2 row-end-4'>
-        <DashBoardBitrhDay></DashBoardBitrhDay>
-      </div>
+      <div className='flex-1 grid grid-cols-2 grid-rows-2 gap-5 max-h-[340px]'>
+        <div className='col-start-1'>
+          <DashBoardInbox />
+        </div>
 
-      <div className='col-start-2 row-start-1 row-end-4'>
-        <DashBoardTemplate></DashBoardTemplate>
-      </div>
+        <div className='col-start-1 row-start-2 row-end-4 xs:col-start-2 xs:row-start-1 xs:row-end-2'>
+          <DashBoardCreateWorkPage />
+        </div>
 
-      <div className='col-start-3 row-start-1 row-end-3'>
-        <DashBoardInbox></DashBoardInbox>
-      </div>
-
-      <div className='col-start-3 row-start-3 row-end-4'>
-        <DashBoardCreateWorkPage></DashBoardCreateWorkPage>
-      </div>
-
-      <div className='col-start-4 row-start-1 row-end-4'>
-        <DashBoardAutomation></DashBoardAutomation>
+        <div className='col-start-2 row-start-1 row-end-4 xs:col-start-1 xs:row-start-2 xs:col-end-3 xs:row-end-2'>
+          <DashBoardAutomation />
+        </div>
       </div>
     </div>
   )

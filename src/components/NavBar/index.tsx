@@ -12,7 +12,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className='flex w-[70px] gap-5 h-contentScreen rounded-2xl bg-white shadow-boxPrimary py-10 px-[14px] flex-shrink-0  flex-col'>
+    <div className='flex w-[70px] gap-5 h-contentScreen rounded-2xl bg-white shadow-boxPrimary py-10 px-[14px] flex-shrink-0  flex-col xs:hidden'>
       <>
         <NavWorkSpace />
         {NAVBAR_LINK.map((link) => (

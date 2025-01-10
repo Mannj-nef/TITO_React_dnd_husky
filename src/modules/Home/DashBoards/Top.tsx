@@ -11,7 +11,7 @@ const DashBoardTop = () => {
   return (
     <div className='flex justify-between'>
       <div>
-        <h1 className='text-4xl'>DashBoard</h1>
+        <h1 className='xs:text-2xl md:text-3xl lg:text-3xl text-4xl'>DashBoard</h1>
         <span className='text-xs font-semibold '>{getDate()}</span>
       </div>
 

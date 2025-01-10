@@ -38,7 +38,11 @@ const User = () => {
 
   return (
     <>
-      <div ref={nodeRef} className='flex gap-2 items-center mr-5 cursor-pointer' onClick={() => setShowAction(true)}>
+      <div
+        ref={nodeRef}
+        className='flex gap-2 items-center xs:mr-0 mr-5 cursor-pointer flex-shrink-0'
+        onClick={() => setShowAction(true)}
+      >
         <div className='w-10 h-10 flex-shrink-0'>
           <img
             src={user?.avatar || AVATAR_DEFAULT}
@@ -58,7 +62,7 @@ const User = () => {
             <div className='overlay absolute w-full h-full cursor-pointer' onClick={() => setShowAction(false)}></div>
 
             <div
-              className='bg-white w-[250px] flex flex-col gap-3 absolute p-3 rounded-lg'
+              className='bg-white xs:w-[150px] w-[250px] flex flex-col gap-3 absolute p-3 rounded-lg'
               style={position}
               onClick={() => setShowAction(false)}
             >

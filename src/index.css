@@ -10,6 +10,10 @@ html {
   @apply bg-slate-400 bg-opacity-10;
 }
 
+body {
+  @apply overflow-x-hidden;
+}
+
 a,
 p,
 span,

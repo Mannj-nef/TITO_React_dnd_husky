@@ -13,13 +13,13 @@ const Header = () => {
   const setShowModal = useModal((state) => state.setShow)
 
   return (
-    <div className='flex gap-8 justify-between items-center overflow-x-auto overflow-y-hidden py-2 -my-2 h-header'>
+    <div className='flex xs:gap-4 gap-8 justify-between items-center overflow-x-auto overflow-y-hidden py-2 -my-2 h-header'>
       <div className='flex gap-8'>
         <LogoApp logo={LOGO} />
         <Search className='!w-[500px] md:!w-[300px] xs:hidden'></Search>
       </div>
 
-      <div className='flex gap-4 items-center'>
+      <div className='flex gap-4 xs:gap-3 items-center'>
         <Button
           className='text-white mr-10 !rounded-xl !px-8 md:hidden sm:hidden xs:hidden'
           type='primary'
@@ -29,7 +29,7 @@ const Header = () => {
         </Button>
 
         {ICONS.map((item) => (
-          <span key={item.id} className='xs:hidden cursor-pointer bg-white p-2 rounded-xl shadow-boxPrimary'>
+          <span key={item.id} className='cursor-pointer bg-white xs:p-1 p-2 rounded-xl shadow-boxPrimary'>
             {item.icon}
           </span>
         ))}
