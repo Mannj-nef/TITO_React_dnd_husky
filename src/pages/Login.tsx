@@ -1,18 +1,18 @@
 import { useCallback, useState } from 'react'
 import { withErrorBoundary } from 'react-error-boundary'
 import ErrorComponent from '~/components/Error'
-import WrappLogin from '~/components/WrappLogin'
+import WrapLogin from '~/components/WrapLogin'
 import { Login, SignIn } from '~/modules/Login'
 
 const LoginPage = () => {
-  const [isTologin, setIsToLogin] = useState(false)
+  const [isToLogin, setIsToLogin] = useState(false)
 
-  const handleShowLogin = useCallback((value: boolean) => setIsToLogin(value), [isTologin])
+  const handleShowLogin = useCallback((value: boolean) => setIsToLogin(value), [isToLogin])
 
   return (
-    <WrappLogin>
-      {!isTologin ? <SignIn handleShowLogin={handleShowLogin} /> : <Login handleShowLogin={handleShowLogin} />}
-    </WrappLogin>
+    <WrapLogin>
+      {!isToLogin ? <SignIn handleShowLogin={handleShowLogin} /> : <Login handleShowLogin={handleShowLogin} />}
+    </WrapLogin>
   )
 }
 

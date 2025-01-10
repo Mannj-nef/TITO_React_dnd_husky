@@ -4,7 +4,7 @@ import { Input } from '~/components/Inputs'
 import Button from '~/components/Button'
 import { ArrowLongLeftIcon } from '~/components/Icons'
 import * as yup from 'yup'
-import WrappIconPassword from '~/components/WrappIconPassword'
+import WrapIconPassword from '~/components/WrapIconPassword'
 import { Link, useNavigate } from 'react-router-dom'
 import ROUTER from '~/configs/router'
 import { useMutation } from '@tanstack/react-query'
@@ -80,7 +80,7 @@ const Login = ({ handleShowLogin }: ILogin) => {
         <div className='flex flex-col gap-4 mt-10'>
           <Input name='email' control={control} placeholder={email} disabled />
           <Input name='password' control={control} type={showPassword ? 'text' : 'password'} placeholder='Password'>
-            <WrappIconPassword showPassword={showPassword} setShowPassword={setShowPassword} />
+            <WrapIconPassword showPassword={showPassword} setShowPassword={setShowPassword} />
           </Input>
           <p className='text-primary cursor-pointer'>Forgot password?</p>
           <p

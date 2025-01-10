@@ -29,7 +29,7 @@ const schema: yup.ObjectSchema<IFormInputs> = yup.object({
   name: YUP_SCHEMA.NAME,
   email: YUP_SCHEMA.EMAIL,
   password: YUP_SCHEMA.PASSWORD.optional(),
-  confirmPassword: YUP_SCHEMA.PASSWORDCONFIRMATION.optional()
+  confirmPassword: YUP_SCHEMA.PASSWORD_CONFIRMATION.optional()
 })
 
 const Profile = () => {

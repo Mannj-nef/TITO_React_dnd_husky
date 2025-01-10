@@ -7,8 +7,8 @@ const YUP_SCHEMA = {
   PASSWORD: yup
     .string()
     .required()
-    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, USER_MESSAGE.PASSWORD_INVALID),
-  PASSWORDCONFIRMATION: yup
+    .matches(/^(?=.*[a-z])(?=.*[A-Z]).{8,}$/, USER_MESSAGE.PASSWORD_INVALID),
+  PASSWORD_CONFIRMATION: yup
     .string()
     .oneOf([yup.ref('password')], USER_MESSAGE.PASSWORD_MUST_MATCH)
     .required()

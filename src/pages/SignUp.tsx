@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import WrappIconPassword from '~/components/WrappIconPassword'
+import WrapIconPassword from '~/components/WrapIconPassword'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from '~/components/Inputs'
-import WrappLogin from '~/components/WrappLogin'
+import WrapLogin from '~/components/WrapLogin'
 import Button from '~/components/Button'
 import * as yup from 'yup'
 import YUP_SCHEMA from '~/constants/validates/yupSchema'
@@ -28,7 +28,7 @@ const schema: yup.ObjectSchema<IFormInputs> = yup
   .object({
     email: YUP_SCHEMA.EMAIL,
     password: YUP_SCHEMA.PASSWORD,
-    confirmPassword: YUP_SCHEMA.PASSWORDCONFIRMATION
+    confirmPassword: YUP_SCHEMA.PASSWORD_CONFIRMATION
   })
   .required()
 
@@ -37,7 +37,7 @@ const SignUp = () => {
   const [birthDay, setBirthDay] = useState(new Date())
   const navigate = useNavigate()
 
-  const { handleSubmit, control, formState, watch, reset } = useForm<IFormInputs>({
+  const { handleSubmit, control, formState, watch, reset, setFocus } = useForm<IFormInputs>({
     resolver: yupResolver(schema)
   })
   const { errors } = formState
@@ -66,10 +66,14 @@ const SignUp = () => {
     )
   }
 
+  useEffect(() => {
+    setFocus('email')
+  }, [])
+
   return (
-    <WrappLogin>
+    <WrapLogin>
       <div className='px-10 py-6 flex flex-col h-full'>
-        <h2>Create your account</h2>
+        <h2 className='xs:text-2xl'>Create your account</h2>
         <form onSubmit={handleSubmit(handleSignUp)} autoComplete='off'>
           <div className='flex flex-col gap-6'>
             <Input
@@ -85,7 +89,7 @@ const SignUp = () => {
               error={errors.password?.message}
               placeholder='Enter your password'
             >
-              <WrappIconPassword showPassword={showPassword} setShowPassword={setShowPassword} />
+              <WrapIconPassword showPassword={showPassword} setShowPassword={setShowPassword} />
             </Input>
 
             <Input
@@ -99,7 +103,7 @@ const SignUp = () => {
 
           <div className='mt-8'>
             <h4 className='font-bold'>Date of birth</h4>
-            <p className='text-sm'>
+            <p className='xs:text-xs md:text-xs text-sm'>
               This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or
               something else.
             </p>
@@ -117,7 +121,7 @@ const SignUp = () => {
           </Button>
         </form>
       </div>
-    </WrappLogin>
+    </WrapLogin>
   )
 }
 
