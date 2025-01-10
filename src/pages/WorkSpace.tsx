@@ -10,13 +10,11 @@ const WorkSpace = () => {
     <>
       <h1 className='text-center mb-5 text-xl'>WorkSpaces</h1>
 
-      <div className='grid grid-cols-4 gap-5'>
+      <div className='grid xs:grid-cols-1 md:grid-cols-2 grid-cols-4 gap-5'>
         <ProjectCreate></ProjectCreate>
 
         {!!projects.length &&
-          projects.map((project) => (
-            <ProjectItem project={project} key={project._id}></ProjectItem>
-          ))}
+          projects.map((project) => <ProjectItem project={project} key={project._id}></ProjectItem>)}
       </div>
     </>
   )

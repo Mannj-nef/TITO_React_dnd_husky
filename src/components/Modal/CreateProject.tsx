@@ -37,7 +37,7 @@ const CreateProject = () => {
   }
 
   return (
-    <div className='relative max-w-[500px] w-full bg-white mx-auto top-1/2 -translate-y-1/2 rounded-xl p-5'>
+    <div className='relative xs:mx-5 xs:w-auto max-w-[500px] w-full bg-white mx-auto top-1/2 -translate-y-1/2 rounded-xl p-5'>
       <span
         className='cursor-pointer absolute top-2 right-2  w-9 h-9  rounded-full flex items-center justify-center hover:bg-slate-300 transition-opacity'
         onClick={() => setShow()}
