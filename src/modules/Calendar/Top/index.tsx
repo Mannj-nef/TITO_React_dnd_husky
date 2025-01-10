@@ -6,7 +6,7 @@ const NOW = handleGetDate()
 
 const CalendarTop = () => {
   return (
-    <div className='mt-3 flex items-center gap-3'>
+    <div className='mt-3 flex xs:flex-col xs:items-start items-center gap-3'>
       <div className='p-2 border-2 rounded-lg max-w-[180px] w-full flex items-center justify-between'>
         <span>{NOW}</span>
         <div className='w-8 h-4 p-2 flex items-center'>

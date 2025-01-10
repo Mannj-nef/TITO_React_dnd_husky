@@ -11,12 +11,10 @@ const Calendar = () => {
 
         <TopCalendar />
 
-        <div className='grid grid-cols-7 flex-1 mt-5'>
+        <div className='xl:grid 2xl:grid xl:grid-cols-7 2xl:grid-cols-7 flex flex-1 mt-5'>
           {CALENDAR.map((item) => (
             <div className='border-2 text-center p-2' key={item.day}>
-              <p className='py-2 px-8 rounded-xl inline-block bg-slate-200 font-semibold'>
-                {item.day}
-              </p>
+              <p className='py-2 px-8 rounded-xl inline-block bg-slate-200 font-semibold'>{item.day}</p>
             </div>
           ))}
         </div>
