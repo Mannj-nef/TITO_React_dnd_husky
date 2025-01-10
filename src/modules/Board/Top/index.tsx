@@ -1,6 +1,6 @@
 import { memo, useState, useRef, useCallback, useMemo, useEffect } from 'react'
 import GetMembers from '~/components/GetMembers'
-import { PlusIcon, SettingIcon } from '~/components/Icons'
+import { CloseIcon, PlusIcon, SettingIcon } from '~/components/Icons'
 import Portal from '~/components/Portal'
 import useUser from '~/store/user'
 
@@ -12,7 +12,7 @@ const quantityMemberShow = 7
 
 const BoardTop = () => {
   const { show: showGetUser, handleShow: setShowGetUser } = useToggle()
-  const { show: ShowEditBoard, handleShow: setShowEdditBoard } = useToggle()
+  const { show: ShowEditBoard, handleShow: setShowEditBoard } = useToggle()
 
   const [positionGetUser, setPositionGetUser] = useState({
     top: 0,
@@ -32,7 +32,7 @@ const BoardTop = () => {
 
   const handleSetShowBoardEdit = useCallback(
     (value: boolean) => {
-      setShowEdditBoard(value)
+      setShowEditBoard(value)
     },
     [ShowEditBoard]
   )
@@ -110,6 +110,17 @@ const BoardTop = () => {
         <Portal>
           <div className='fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-20 bg-black bg-opacity-60'>
             <BoardEdit setShow={handleSetShowBoardEdit} />
+
+            <span
+              className={`absolute right-2 top-6 cursor-pointer w-6 h-6  rounded-full flex items-center justify-center  transition-opacity  ${
+                projectDetail?.cover_photo ? 'text-white hover:bg-slate-500' : 'text-text1 hover:bg-slate-200'
+              }`}
+              onClick={() => handleSetShowBoardEdit(false)}
+            >
+              <div className='w-4 h-4 flex items-center justify-center'>
+                <CloseIcon />
+              </div>
+            </span>
 
             <div className='overlay absolute -z-10  w-full h-full' onClick={() => handleSetShowBoardEdit(false)}></div>
           </div>

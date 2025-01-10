@@ -1,5 +1,5 @@
 import { DotsEllipsisIcon, PhotoIcon } from '~/components/Icons'
-import AcrionCollection from '~/components/ActionCollection'
+import ActionCollection from '~/components/ActionCollection'
 import { memo, useCallback, useEffect, useRef, useState } from 'react'
 import Portal from '~/components/Portal'
 import { useMutation } from '@tanstack/react-query'
@@ -61,7 +61,7 @@ const RemoveCard = () => {
     })
   }, [cardEdit, board])
 
-  const handeRemoveBackground = () => {
+  const handleRemoveBackground = () => {
     if (!cardEdit) return
 
     setCardEdit({
@@ -73,13 +73,13 @@ const RemoveCard = () => {
   useEffect(() => {
     if (!actionRef.current) return
     const element = actionRef.current
-    const { top, left } = element.getBoundingClientRect()
+    const { top, left, width } = element.getBoundingClientRect()
 
     setPosition({
       top: Math.ceil(top),
-      left: Math.ceil(left + 80)
+      left: window.innerWidth > 1100 ? Math.ceil(left + 80) : Math.ceil(left - 200 + width)
     })
-  }, [])
+  }, [window.innerWidth])
 
   return (
     <div className='cursor-pointer relative'>
@@ -90,17 +90,17 @@ const RemoveCard = () => {
       {show && (
         <Portal>
           <div className='w-full fixed z-40' style={position}>
-            <AcrionCollection title='Remove this card' handleRemove={handleRemoveColumn} closeAction={closeAction}>
+            <ActionCollection title='Remove this card' handleRemove={handleRemoveColumn} closeAction={closeAction}>
               {cardEdit?.imgUrl && (
                 <p
                   className='flex items-center gap-4 text-sm font-normal p-2 hover:bg-slate-200 cursor-pointer'
-                  onClick={handeRemoveBackground}
+                  onClick={handleRemoveBackground}
                 >
                   <PhotoIcon />
-                  <span>Remove backGound</span>
+                  <span>Remove backGround</span>
                 </p>
               )}
-            </AcrionCollection>
+            </ActionCollection>
           </div>
         </Portal>
       )}

@@ -9,7 +9,7 @@ const GetMember = () => {
   const setCardEdit = useModal((state) => state.setCardEdit)
   const setShowMemberCardEdit = useModal((state) => state.setShowMemberCardEdit)
 
-  const setmemberToCard = useCallback(
+  const setMemberToCard = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
       if (!cardEdit) return
 
@@ -25,8 +25,8 @@ const GetMember = () => {
     [cardEdit]
   )
   return (
-    <div className='absolute z-10 w-[250px] h-[200px] bg-white shadow-boxThird top-full left-full rounded-lg  overflow-y-auto'>
-      <GetMembers handleMember={setmemberToCard} />
+    <div className='absolute z-10 xs:lef-1/2 xs:-translate-x-1/2 w-[250px] h-[200px] bg-white shadow-boxThird top-full left-full rounded-lg  overflow-y-auto'>
+      <GetMembers handleMember={setMemberToCard} />
     </div>
   )
 }

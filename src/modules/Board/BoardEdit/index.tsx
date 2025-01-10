@@ -63,7 +63,7 @@ const BoardEdit = ({ setShow }: IBoardEdit) => {
   }, [])
 
   return (
-    <div className='mx-auto rounded-lg bg-white w-[650px] overflow-hidden'>
+    <div className='mx-auto rounded-lg bg-white xs:w-full xs:h-full w-[650px] overflow-hidden'>
       {background && (
         <div className='relative'>
           <div className='h-[250px]'>
@@ -77,12 +77,12 @@ const BoardEdit = ({ setShow }: IBoardEdit) => {
       <div className='p-5'>
         <div className='top'>
           <div className='flex justify-between items-center'>
-            <h3 className='flex items-center gap-5 text-2xl'>
+            <h3 className='flex items-center justify-between gap-5 text-2xl'>
               <ExtendIcon />
 
               <input
                 ref={inputTitleRef}
-                className='p-3 outline-none  rounded-lg text-text1'
+                className='p-3 outline-none  rounded-lg text-text1 xs:max-w-[180px]'
                 type='text'
                 placeholder={title}
                 value={title}

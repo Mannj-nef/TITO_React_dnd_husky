@@ -11,7 +11,7 @@ interface IActionCollection {
   handleRemove: () => void
 }
 
-const AcrionCollection = (props: IActionCollection) => {
+const ActionCollection = (props: IActionCollection) => {
   const { title = '', children, handleRemove, closeAction } = props
 
   return (
@@ -46,6 +46,6 @@ const AcrionCollection = (props: IActionCollection) => {
   )
 }
 
-export default withErrorBoundary(memo(AcrionCollection), {
+export default withErrorBoundary(memo(ActionCollection), {
   FallbackComponent: ErrorComponent
 })

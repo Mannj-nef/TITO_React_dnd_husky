@@ -32,7 +32,7 @@ const CardEdit = () => {
 
   return (
     <div
-      className='mx-auto rounded-lg h-contentModal bg-white w-[650px]  relative top-1/2 -translate-y-1/2 overflow-y-scroll'
+      className='mx-auto rounded-lg h-contentModal bg-white xs:w-auto xs:h-full w-[650px]  relative top-1/2 -translate-y-1/2 overflow-y-scroll'
       onClick={handleResetAction}
     >
       {cardEdit?.imgUrl && <BackGround />}
