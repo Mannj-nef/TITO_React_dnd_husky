@@ -6,22 +6,22 @@ import useWorkSpace from '~/store/workSpace'
 import ErrorComponent from '../Error'
 
 interface INavWorkSpaceItem {
-  handleHiden: () => void
+  handleHidden: () => void
 }
 
-const NavWorkSpaceItem = ({ handleHiden }: INavWorkSpaceItem) => {
+const NavWorkSpaceItem = ({ handleHidden }: INavWorkSpaceItem) => {
   const projects = useWorkSpace((state) => state.projects)
 
   return (
-    <div className={`navLinkHover`}>
-      <div className='w-[300px] px-2 -mx-2 h-[300px] overflow-y-auto overflow-hidden'>
+    <div className='navLinkHover xs:top-full xs:-left-8'>
+      <div className='xs:w-[250px]  w-[300px] px-2 -mx-2 h-[300px] overflow-y-auto overflow-hidden'>
         {!!projects.length &&
           projects.map((project) => (
             <Link
               to={`${ROUTER.WORKSPACE.path}/${project._id}`}
               key={Math.random()}
               className='flex mb-3 items-center gap-4 p-3 rounded-lg cursor-pointer shadow-boxSecondary'
-              onClick={handleHiden}
+              onClick={handleHidden}
             >
               <div className='w-16 h-10'>
                 <img

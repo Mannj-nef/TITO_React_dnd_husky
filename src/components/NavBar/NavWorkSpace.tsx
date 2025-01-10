@@ -12,13 +12,13 @@ const NavWorkSpace = () => {
     setShowWordPages(true)
   }
 
-  const handleHiden = useCallback(() => {
+  const handleHidden = useCallback(() => {
     if (!showWordPages) return
     setShowWordPages(false)
   }, [showWordPages])
 
   return (
-    <div className='relative group' onMouseOver={handleShow} onMouseLeave={handleHiden}>
+    <div className='relative group' onMouseOver={handleShow} onMouseLeave={handleHidden}>
       <NavLink
         to={WORKSPACE.to}
         className={({ isActive }: { isActive: boolean }) =>
@@ -28,7 +28,7 @@ const NavWorkSpace = () => {
         <span className='group-active:text-white icon-active'>{WORKSPACE.icon}</span>
       </NavLink>
 
-      {showWordPages && <NavWorkSpaceItem handleHiden={handleHiden} />}
+      {showWordPages && <NavWorkSpaceItem handleHidden={handleHidden} />}
     </div>
   )
 }
