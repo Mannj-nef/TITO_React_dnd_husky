@@ -19,7 +19,7 @@ const User = () => {
 
   const { show: showAction, handleShow: setShowAction } = useToggle()
 
-  const [positon, setPositon] = useState({
+  const [position, setPosition] = useState({
     top: 0,
     right: 0
   })
@@ -30,7 +30,7 @@ const User = () => {
     const element = nodeRef.current
     const { top, height, right } = element.getBoundingClientRect()
 
-    setPositon({
+    setPosition({
       top: Math.ceil(top + height + space),
       right: Math.ceil(screen.width - right)
     })
@@ -47,8 +47,8 @@ const User = () => {
           />
         </div>
         <div className='leading-4'>
-          <p className='font-semibold '>{user?.name.slice(0, 20)}</p>
-          <span className='text-sm text-slate-400'>Member</span>
+          <p className='font-semibold xs:text-xs'>{user?.name.slice(0, 20)}</p>
+          <span className='xs:text-xs text-sm text-slate-400'>Member</span>
         </div>
       </div>
 
@@ -59,7 +59,7 @@ const User = () => {
 
             <div
               className='bg-white w-[250px] flex flex-col gap-3 absolute p-3 rounded-lg'
-              style={positon}
+              style={position}
               onClick={() => setShowAction(false)}
             >
               <Link

@@ -16,7 +16,7 @@ const Header = () => {
     <div className='flex gap-8 justify-between items-center overflow-x-auto overflow-y-hidden py-2 -my-2 h-header'>
       <div className='flex gap-8'>
         <LogoApp logo={LOGO} />
-        <Search className='!w-[500px] md:!w-[300px] xs:!w-[200px]'></Search>
+        <Search className='!w-[500px] md:!w-[300px] xs:hidden'></Search>
       </div>
 
       <div className='flex gap-4 items-center'>
@@ -29,7 +29,7 @@ const Header = () => {
         </Button>
 
         {ICONS.map((item) => (
-          <span key={item.id} className='cursor-pointer bg-white p-2 rounded-xl shadow-boxPrimary'>
+          <span key={item.id} className='xs:hidden cursor-pointer bg-white p-2 rounded-xl shadow-boxPrimary'>
             {item.icon}
           </span>
         ))}
