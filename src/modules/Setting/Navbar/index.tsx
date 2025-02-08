@@ -5,7 +5,7 @@ import { memo } from 'react'
 const Navbar = () => {
   return (
     <>
-      <h3>Settings</h3>
+      <h3 className='xs:hidden sm:hidden'>Settings</h3>
       <Search />
       <NavList />
     </>

@@ -78,7 +78,7 @@ const ChangePassword = () => {
               onClick={() => setIsHiddenChangePassword(false)}
             ></div>
             <form
-              className='w-[500px] bg-white rounded-lg p-5 flex flex-col gap-5'
+              className='w-[500px] mx-4 bg-white rounded-lg p-5 flex flex-col gap-5'
               onSubmit={handleSubmit(handleLogin)}
             >
               <Input

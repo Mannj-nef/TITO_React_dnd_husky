@@ -95,13 +95,13 @@ const Profile = () => {
       <div className='p-5'>
         <TopProfile />
 
-        <div className='flex items-center justify-between border-b-2 pb-5'>
+        <div className='flex items-center justify-between border-b-2 pb-5 xs:flex-col sm:flex-col xs:items-start sm:items-start xs:gap-3 sm:gap-3'>
           <div>
             <h3 className='text-xl'>Your Profile</h3>
             <p className='text-text1 text-sm italic opacity-70'>Update your profile photo and details here</p>
           </div>
 
-          <div className='flex gap-2'>
+          <div className='flex gap-2 xs:ml-auto sm:ml-auto'>
             <Button className='!px-5 !rounded-lg border-2 shadow-boxPrimary'>Cancel</Button>
             <Button
               className='!px-5 !rounded-lg bg-primary text-white shadow-boxPrimary'

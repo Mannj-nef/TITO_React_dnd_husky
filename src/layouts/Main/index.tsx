@@ -39,9 +39,9 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
   if (!responseUser?.user) return
 
   return (
-    <div className='px-5 py-2 xs:mb-4'>
+    <div className='xs:px-3 sm:px-3 px-5 py-2 xs:mb-4'>
       <Header />
-      <div className='flex xs:flex-col xs:gap-3 gap-10 xs:mt-2 mt-5'>
+      <div className='flex xs:flex-col xs:gap-3 md:gap-5 lg:gap-6 xl:gap-6 2xl:gap-10 xs:mt-2 mt-5'>
         <NavBar />
 
         <Modal>{cardEdit ? <CardEdit /> : <CreateProjectModal />}</Modal>

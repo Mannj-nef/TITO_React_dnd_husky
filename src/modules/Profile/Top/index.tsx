@@ -29,7 +29,7 @@ const TopProfile = () => {
   return (
     <div className='flex relative mb-10'>
       <div className='absolute left-0 -translate-y-1/2'>
-        <div className='w-32 h-32 p-1 rounded-2 rounded-full bg-white shadow-boxPrimary'>
+        <div className='xs:w-20 xs:h-20 w-32 h-32 p-1 rounded-2 rounded-full bg-white shadow-boxPrimary'>
           <label className='cursor-pointer relative'>
             {imageURL ? (
               <img className='w-full h-full object-cover rounded-full' src={imageURL} alt={user?.name} />
@@ -56,11 +56,9 @@ const TopProfile = () => {
         </div>
       </div>
 
-      <div className='ml-[140px]'>
-        <div>
-          <h3 className='text-xl'>{user?.name}</h3>
-          <p className='text-text1 italic opacity-70'>{user?.email}</p>
-        </div>
+      <div className='xs:ml-[100px] sm:ml-[100px] ml-[140px]'>
+        <h3 className='text-xl xs:text-base sm:text-base'>{user?.name}</h3>
+        <p className='text-text1 xs:text-sm sm:text-sm italic opacity-70'>{user?.email}</p>
       </div>
     </div>
   )

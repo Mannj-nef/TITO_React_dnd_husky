@@ -11,10 +11,10 @@ const NavList = () => {
         <Link
           to={item.to}
           key={item.title}
-          className='flex items-center gap-3 hover:bg-slate-200 p-3 rounded-xl'
+          className='flex items-center xs:justify-center gap-3 hover:bg-slate-200 p-3 rounded-xl'
         >
           <div>{item.icon}</div>
-          <span>{item.title}</span>
+          <span className='xs:hidden sm:hidden'>{item.title}</span>
         </Link>
       ))}
     </div>

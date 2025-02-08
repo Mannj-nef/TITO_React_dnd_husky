@@ -8,8 +8,8 @@ interface IFeature {
 
 const Feature = ({ children, description = '', title = '' }: IFeature) => {
   return (
-    <div className='flex gap-20 border-b py-5'>
-      <div className='max-w-[300px] w-full'>
+    <div className='flex flex-wrap justify-between gap-y-2 border-b py-5'>
+      <div className='2xl:max-w-[250px] 2xl:w-full w-fit'>
         <h3 className='opacity-90'>{title}</h3>
         <p className='text-text1 opacity-70 font-medium text-xs'>{description}</p>
       </div>

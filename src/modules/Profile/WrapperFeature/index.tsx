@@ -8,12 +8,12 @@ interface IFeature {
 
 const Feature = ({ children, description = '', title = '' }: IFeature) => {
   return (
-    <div className='flex py-5 gap-5 border-b-2'>
+    <div className='flex xs:flex-col sm:flex-col py-5 gap-5 border-b-2'>
       <div className='w-[400px]'>
         <h4>{title}</h4>
         <p className='text-sm opacity-70'>{description}</p>
       </div>
-      <div className='flex flex-col gap-5 w-[400px]'>{children}</div>
+      <div className='flex flex-col gap-5 xs:w-full sm:w-full w-[400px]'>{children}</div>
     </div>
   )
 }
